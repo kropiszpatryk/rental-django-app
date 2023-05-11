@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+{% block title %}LISTA MIESZKAN {% endblock %}
+
+{% block content %}
+    <h1>{{ls.title}}</h1>
+    <ul>
+        {% for field in ls.item_set.all %}
+            <li>{{field.title}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,100 @@
+<html>
+<head>
+    <style type="text/css">
+      /* The sidebar menu */
+      .sidenav {
+        height: 100%; /* Full-height: remove this if you want "auto" height */
+        width: 160px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: #111; /* Black */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+      }
+
+      /* The navigation menu links */
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      /* When you mouse over the navigation links, change their color */
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      /* Style page content */
+      .main {
+        margin-left: 160px; /* Same as the width of the sidebar */
+        padding: 0px 10px;
+      }
+
+      /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <title> {% block title %}Patryk Kropisz{% endblock %}</title>
+</head>
+<body>
+<!--    <div class="sidenav">-->
+<!--        <a href="/"> HOME </a>-->
+<!--        <a href="/register"> Rejestracja </a>-->
+<!--        <a href="/login"> Logowanie </a>-->
+<!--        <a href="/index"> Wyświetlenia </a>-->
+<!--    </div>-->
+<!--    <div id="content", name="content", class="main">-->
+<!--        {% block content %}-->
+<!--        {% endblock %}-->
+<!--    </div>-->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Rental app</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="#">Witaj, {{user.username}}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/observe_list">Obserwowane</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/index">Oferty</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/search">Wyszukaj</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
+
+
+
+      {% else %}
+
+        <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+</body>
+</html>
