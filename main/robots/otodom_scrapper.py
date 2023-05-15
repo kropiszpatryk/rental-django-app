@@ -23,7 +23,7 @@ class OtodomScrapper:
         logging.info(f"Otodom scrapper started working!")
         self.page_checker = 'https://www.otodom.pl/pl/oferty/wynajem/mieszkanie/cala-polska?page=1'
         self.page_all = 'https://www.otodom.pl/pl/oferty/wynajem/mieszkanie/cala-polska?page={}'
-        self.service = Service('/Users/patrykkropisz/Desktop/Video/geckodriver')
+        self.service = Service('enter path to geckodriver here')
         self.options = FirefoxOptions()
         self.options.add_argument('--start-maximized')
         self.options.add_argument('--incognito')
