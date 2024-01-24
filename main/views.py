@@ -1,3 +1,5 @@
+import json
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import ObservedOffers, Offers
@@ -7,6 +9,9 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
+
+def health_check(request):
+    return JsonResponse({"status": "healthy"}, status=200)
 
 def homepage(request):
     return render(request=request, template_name='main/home.html')
